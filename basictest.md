@@ -8,9 +8,9 @@ The get the project setup for tests simply run
 ```
 
 ## Add a test file
-Add a new file **MainTests.elm** in the **/tests** folder.
+A file **Example.elm** is created in the **/tests** folder. 
 
-Copy-paste the following code.
+Rename it to **MainTests.elm** and replace the existing code with the following.
 
 ```elm
 module MainTests exposing (..)

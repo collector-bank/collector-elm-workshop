@@ -121,5 +121,9 @@ view model =
     ]
 ```
 
+## Fix the tests
+
+The type signature for update has changed so the tests do not work anymore. Try to fix it. 
+
 ## References
 * https://package.elm-lang.org/packages/elm/browser/latest/Browser

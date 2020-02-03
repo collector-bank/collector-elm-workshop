@@ -9,8 +9,9 @@ In this workshop we will get familiar with [Elm](https://elm-lang.org/) by hands
 * [Setup local dev environment](setup.md)
 * [A basic example - increment, decrement app](basicapp.md)
 * [Adding tests](basictest.md)
-* Extend app with a new button
+* [Extend the app with a new button](extend-app-with-double-button.md)
+* [Adding type signatures](type-signatures.md)
+* [Extend app with a http request](extend-app-with-http-request.md)
 * Add a fuzzy test
-* Extend app with a http request
 * Build a calculator
 

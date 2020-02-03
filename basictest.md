@@ -52,7 +52,7 @@ groupOfTests =
 
 Group the tests of the update function using **describe**.
 
-## Test view method
+## Test the view method
 
 The [elm-html-test package](https://package.elm-lang.org/packages/eeue56/elm-html-test/1.0.0/) provides utility functions for testing functions that generate html. 
 

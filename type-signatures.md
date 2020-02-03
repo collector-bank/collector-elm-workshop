@@ -22,6 +22,6 @@ Start the **repl** and enter the definitions above and test calling the function
 > elm repl
 ```
 
-Try to add type signatures to the root level functions in the application.
+Try to add type signatures to the root level functions in the application. 
 
 **Hint** add any type signature and look at the compiler error.

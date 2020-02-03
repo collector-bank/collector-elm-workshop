@@ -11,10 +11,108 @@ main =
   Browser.sandbox { init = 0, update = update, view = view }
 ```
 
-This model is not powerful enough to express programs that makes http requests. For this we need something called commands in elm. Programs created using **Browser.element** allows commands (and subscriptions which we will not need for now).
+This model is not powerful enough to express programs that makes http requests. For this we need something called **commands** in elm. Programs created using **Browser.element** allows commands.
 
 A simple example of a main function constructed using ```Browser.element``` is given among the elm examples and its can be found [here](https://elm-lang.org/examples/book).
 
 The most important things to note is that
-* The update function now has the type ```Msg -> Model -> (Model, Cmd Msg)``` instead of simply ```Msg -> Model -> Model```. This gives us the option to return both a new application model and a command that the elm framework will execute for us. In this example we will create a http request command.
-* 
+* The **init function** now has the type ```flags -> (model, Cmd msg)``` instead of simply ```model```.
+* The **update function** now has the type ```msg -> model -> (model, Cmd msg)``` instead of simply ```msg -> model -> model```. This gives us the opportunity to return both a new application model and a command that the elm framework will execute for us. In this example we will create a http request command.
+* There is a new **subscriptions function** (not needed now)
+
+## Guide
+
+1. The code below assumes a **type alias** for the application model type. Add this definition.
+
+```elm
+type alias Model = Int
+```
+
+2. Replace **Browser.sandbox** with **Browser.element** in the main function.
+
+```elm
+main : Program () Model Msg
+main =
+  Browser.element
+      { init = init
+      , update = update
+      , subscriptions = Sub.none
+      , view = view
+      }
+```
+
+3. Update the **init function** implementation as
+
+```elm
+init : flags -> (Model, Cmd Msg)
+init _ -> (0, Cmd.none)
+```
+
+4. Add two new data constructors for the message type
+
+```elm
+type Msg = ... | MkRequest |  GotResponse (Result Http.Error Int)
+```
+
+5. Change the type signature of the update function to fit the Browser.element requirements
+
+```elm
+update : Msg -> Model -> (Model, Cmd Msg)
+```
+
+6. Update return values to match the type signature for existing messages
+
+```elm
+update msg model =
+  case msg of
+    Increment ->
+      (model + 1, Cmd.none)
+
+    Decrement ->
+      (model - 1, Cmd.none)
+
+    Double ->
+      (model * 2, Cmd.none)
+```
+
+7. Add handlers for the two new messages in the **update function** 
+
+```elm
+update msg model =
+  case msg of
+    ...
+    MkRequest -> 
+        (model, mkRequestCommand) -- mkRequestCommand will be defined later
+    GotResponse response ->
+        case response of
+            Ok value -> (value, Cmd.none)
+            _ -> (model, Cmd.none)  -- ignore http errors
+```
+
+8. Implement **mkRequestCommand**
+
+```elm
+mkRequestCommand : Cmd Msg
+mkRequestCommand = 
+    Http.get
+        {  url = "https://func-elmworkshop-dev.azurewebsites.net/api/HttpTrigger1?code="
+        , expect = Http.expectJson GotResponse (field "random" int)
+        }
+```
+
+9. Update the **view function** to render a button that will trigger the request
+
+```elm
+view : Model -> Html Msg
+view model =
+  div []
+    [ div [] [ text (String.fromInt model) ]
+    , button [ onClick Decrement ] [ text "-" ]
+    , button [ onClick Increment ] [ text "+" ]
+    , button [ onClick Double ] [ text "2x" ]
+    , button [ onClick MkRequest ] [ text "randomize"]
+    ]
+```
+
+## References
+* https://package.elm-lang.org/packages/elm/browser/latest/Browser

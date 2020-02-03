@@ -15,7 +15,7 @@ Create a new folder and run elm init.
 Create a new file called **Main.elm** in th **/src** folder. Copy-paste the following code.
 
 ```elm
-module Main
+module Main exposing(..)
 
 import Browser
 import Html exposing (Html, button, div, text)

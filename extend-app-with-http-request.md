@@ -22,45 +22,52 @@ The most important things to note is that
 
 ## Guide
 
-1. The code below assumes a **type alias** for the application model type. Add this definition.
+1. Add required packages for http and json; **elm/http**, **elm/json**
+
+```cmd
+> elm install elm/http
+> elm install elm/json
+```
+
+2. Add module import declarations
+
+```elm
+import Http
+import Json.Decode exposing (int, field)
+```
+
+3. Make sure the following **type alias** is defined
 
 ```elm
 type alias Model = Int
 ```
 
-2. Replace **Browser.sandbox** with **Browser.element** in the main function.
+4. Replace **Browser.sandbox** with **Browser.element** in the main function.
 
 ```elm
 main : Program () Model Msg
 main =
   Browser.element
-      { init = init
+      { init = \_ -> (0, Cmd.none)
       , update = update
-      , subscriptions = Sub.none
+      , subscriptions = \_ -> Sub.none
       , view = view
       }
 ```
 
-3. Update the **init function** implementation as
-
-```elm
-init : flags -> (Model, Cmd Msg)
-init _ -> (0, Cmd.none)
-```
-
-4. Add two new data constructors for the message type
+5. Add two new data constructors for the message type
 
 ```elm
 type Msg = ... | MkRequest |  GotResponse (Result Http.Error Int)
 ```
 
-5. Change the type signature of the update function to fit the Browser.element requirements
+6. Change the type signature of the update function to fit the Browser.element requirements
 
 ```elm
 update : Msg -> Model -> (Model, Cmd Msg)
 ```
 
-6. Update return values to match the type signature for existing messages
+7. Update return values to match the type signature for existing messages
 
 ```elm
 update msg model =
@@ -75,7 +82,7 @@ update msg model =
       (model * 2, Cmd.none)
 ```
 
-7. Add handlers for the two new messages in the **update function** 
+8. Add handlers for the two new messages in the **update function** 
 
 ```elm
 update msg model =
@@ -89,7 +96,7 @@ update msg model =
             _ -> (model, Cmd.none)  -- ignore http errors
 ```
 
-8. Implement **mkRequestCommand**
+9. Implement **mkRequestCommand**
 
 ```elm
 mkRequestCommand : Cmd Msg
@@ -100,7 +107,7 @@ mkRequestCommand =
         }
 ```
 
-9. Update the **view function** to render a button that will trigger the request
+10. Update the **view function** to render a button that will trigger the request
 
 ```elm
 view : Model -> Html Msg

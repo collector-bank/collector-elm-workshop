@@ -6,7 +6,7 @@ In this workshop we will get familiar with [Elm](https://elm-lang.org/) by hands
 # Agenda
 
 * [Elm crash course - Building unbreakable webapps fast](https://www.youtube.com/watch?v=kEitFAY7Gc8)
-* Setup local dev environment
+* [Setup local dev environment](readme.md)
 * A basic example - increment, decrement app
 * Add a test or two
 * Extend app with a new button

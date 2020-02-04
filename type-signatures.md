@@ -24,4 +24,11 @@ Start the **repl** and enter the definitions above and test calling the function
 
 Try to add type signatures to the root level functions in the application. 
 
-**Hint** add any type signature and look at the compiler error.
+## Hints
+* From ```elm repl``` it is possible to import a module and to snoop the actual types.
+
+```elm
+import Main exposing (..)
+```
+
+* Sometimes it is possible to add a dummy type signature and look at the compiler error (unfortunately the compiler will not always provide an error message with the expected signature). This method is known as *poor mans typed holes*. Hopefully, elm will support typed holes in the future.

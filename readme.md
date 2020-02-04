@@ -12,6 +12,7 @@ In this workshop we will get familiar with [Elm](https://elm-lang.org/) by hands
 * [Extend the app with a new button](extend-app-with-double-button.md)
 * [Adding type signatures](type-signatures.md)
 * [Extend app with a http request](extend-app-with-http-request.md)
-* Add a fuzzy test
+* [Explore and have fun](explore.md)
+    Add a fuzzy test
 * Build a calculator
 

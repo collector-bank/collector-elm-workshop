@@ -8,7 +8,7 @@ The purpose of this chapter is to give some inspiration on how to explore Elm on
   * What is the application state of a calculator?
 * Add css styling
   * Either do your own styling or...
-  * try out **elm-bootstrap**
+  * try out [elm-bootstrap](https://package.elm-lang.org/packages/rundis/elm-bootstrap/1.0.0/)
 
 ## Fuzzy testing (property based testing)
 

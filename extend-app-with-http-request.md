@@ -22,7 +22,7 @@ The most important things to note is that
 
 ## Guide
 
-1. Add required packages for http and json; **elm/http**, **elm/json**
+1. Add required packages for http and json
 
 ```cmd
 > elm install elm/http
@@ -102,7 +102,7 @@ update msg model =
 mkRequestCommand : Cmd Msg
 mkRequestCommand = 
     Http.get
-        {  url = "https://collector-elm-workhop.glitch.me/api/random"
+        { url = "https://collector-elm-workhop.glitch.me/api/random"
         , expect = Http.expectJson GotResponse (field "random" int)
         }
 ```

@@ -56,7 +56,15 @@ Surf to http://localhost:8000/ and locate Main.elm and click it to start the app
 ## Take a look at the code
 
 * The syntax of elm is quite terse 
-* Elm uses indention to define code blocks in contrast to curly brackets for example.
+```
+// c#
+int add(int x, int y) { return x + y; }
+
+// elm
+add x y = x + y
+```
+
+* Elm uses indention to define code blocks in contrast to curly brackets for example. 
 * ```{ field_a = 1, field_b = 2 }``` creates a record data structure
 * ```type Msg = Increment | Decrement``` is a union type. Its like an enum type but better.
 * The ```case ... of``` is a pattern matching expression

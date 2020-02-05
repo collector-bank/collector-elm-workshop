@@ -64,7 +64,7 @@ int add(int x, int y) { return x + y; }
 add x y = x + y
 ```
 
-* Elm uses indention to define code blocks in contrast to curly brackets for example. 
+* Elm uses indention to define code blocks in contrast to curly brackets
 * ```{ field_a = 1, field_b = 2 }``` creates a record data structure
 * ```type Msg = Increment | Decrement``` is a union type. Its like an enum type but better.
 * The ```case ... of``` is a pattern matching expression

@@ -54,7 +54,7 @@ Group the tests of the update function using **describe**.
 
 ## Test the view method
 
-The [elm-html-test package](https://package.elm-lang.org/packages/eeue56/elm-html-test/1.0.0/) provides utility functions for testing functions that generate html. 
+The test framework provides utility functions for testing functions that generate html.
 
 Example
 
@@ -73,9 +73,7 @@ test "Button has the expected text" <|
             |> Query.find [ tag "button" ]
             |> Query.has [ text "I'm a button!" ]
 ```
+More examples can be found [here](https://github.com/elm-explorations/test/blob/master/tests/src/Test/Html/QueryTests.elm).
 
 Try to write a test for the view function.
 
-## References
-* https://github.com/elm-explorations/test
-* https://package.elm-lang.org/packages/eeue56/elm-html-test/1.0.0/

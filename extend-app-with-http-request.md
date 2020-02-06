@@ -102,7 +102,7 @@ update msg model =
 mkRequestCommand : Cmd Msg
 mkRequestCommand = 
     Http.get
-        { url = "https://collector-elm-workhop.glitch.me/api/random"
+        { url = "https://func-elmworkshop-dev.azurewebsites.net/api/HttpTrigger1?code=euNG1azSO4nxXS263sSFMkUyapStLQm/4FW9n7NvcBSyVddYU1JFgA=="
         , expect = Http.expectJson GotResponse (field "random" int)
         }
 ```

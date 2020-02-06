@@ -102,7 +102,7 @@ update msg model =
 mkRequestCommand : Cmd Msg
 mkRequestCommand = 
     Http.get
-        { url = "https://collector-elm-workhop.glitch.me/"
+        { url = "https://collector-elm-workhop.glitch.me/api/random"
         , expect = Http.expectJson GotResponse (field "random" int)
         }
 ```

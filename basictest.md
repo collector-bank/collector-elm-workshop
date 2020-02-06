@@ -65,7 +65,7 @@ import Test exposing (test)
 import Test.Html.Query as Query
 import Test.Html.Selector exposing (text, tag)
 
-test "Button has the expected text" <|
+example = test "Button has the expected text" <|
     \() ->
         Html.div [ class "container" ]
             [ Html.button [] [ Html.text "I'm a button!" ] ]
